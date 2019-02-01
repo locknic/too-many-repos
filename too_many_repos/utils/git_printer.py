@@ -1,3 +1,5 @@
+from typing import List
+
 from git import Commit
 from git import Repo
 
@@ -17,5 +19,12 @@ def print_commit(commit: Commit) -> None:
     )))
 
 
-def print_repository(repo: Repo) -> None:
+def repo_status(repo: Repo) -> None:
     print(f'{repo.remote().url}: {repo.active_branch}')
+    # uncommitted changes
+    # vs remote
+
+
+def repos_status(repos: List[Repo]) -> None:
+    for repo in repos:
+        repo_status(repo)
