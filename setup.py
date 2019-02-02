@@ -10,5 +10,5 @@ setup(
     classifiers=[
         'License :: OSI Approved :: MIT License',
     ],
-    install_requires=['mypy', 'gitpython'],
+    install_requires=['mypy', 'gitpython', 'pre-commit'],
 )
