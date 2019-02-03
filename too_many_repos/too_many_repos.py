@@ -3,6 +3,7 @@ import argparse
 from git import Repo
 
 from too_many_repos.checkout_master import repos_checkout_master
+from too_many_repos.pull import repos_pull
 from too_many_repos.status import repos_status
 from too_many_repos.utils.repo_finder import find_top_repos
 
@@ -36,7 +37,7 @@ def main() -> int:
     elif args.command == 'fetch':
         raise NotImplementedError
     elif args.command == 'pull':
-        raise NotImplementedError
+        repos_pull(repos)
     elif args.command == 'clean-merged':
         raise NotImplementedError
 

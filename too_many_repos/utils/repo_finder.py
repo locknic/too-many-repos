@@ -1,7 +1,7 @@
 import os
 from typing import List
 
-from git import Repo
+from too_many_repos.models.wrapped_repo import WrappedRepo
 
 
 def find_all_repos_paths(root: str) -> List[str]:
@@ -27,14 +27,14 @@ def find_top_repos_paths(dirpath: str) -> List[str]:
     return repo_paths
 
 
-def find_top_repos(dirpath: str) -> List[Repo]:
+def find_top_repos(dirpath: str) -> List[WrappedRepo]:
     return convert_paths_to_repos(find_top_repos_paths(dirpath))
 
 
-def convert_paths_to_repos(repo_paths: List[str]) -> List[Repo]:
+def convert_paths_to_repos(repo_paths: List[str]) -> List[WrappedRepo]:
     repos = []
     for repo_path in repo_paths:
-        repo = Repo(repo_path)
+        repo = WrappedRepo(repo_path)
         if not repo.bare:
             repos.append(repo)
     return repos
