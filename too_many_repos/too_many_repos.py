@@ -1,4 +1,5 @@
 import argparse
+import os
 
 from git import Repo
 
@@ -22,10 +23,10 @@ def main() -> int:
         prog='too-many-repos', description='A tool for managing multiple repos',
     )
     parser.add_argument('command', type=str, help='command help')
-    parser.add_argument('root', type=str, help='root help')
+    parser.add_argument('-r', '--root', type=str, action='store', default=os.getcwd(), help='root help')
     parser.add_argument(
-        "-v", "--verbosity", action="count", default=0,
-        help="increase output verbosity",
+        '-v', '--verbosity', action='count', default=0,
+        help='increase output verbosity',
     )
     args = parser.parse_args()
 
